@@ -3,6 +3,8 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { InfoIcon } from "lucide-react";
 import { FetchDataSteps } from "@/components/tutorial/fetch-data-steps";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { Suspense } from "react";
 
 async function UserDetails() {
@@ -33,6 +35,12 @@ export default function ProtectedPage() {
             <UserDetails />
           </Suspense>
         </pre>
+      </div>
+      <div className="flex flex-col gap-2 items-start">
+        <h2 className="font-bold text-2xl mb-4">할 일 관리</h2>
+        <Button asChild>
+          <Link href="/protected/tasks">할 일 목록으로 이동</Link>
+        </Button>
       </div>
       <div>
         <h2 className="font-bold text-2xl mb-4">Next steps</h2>
